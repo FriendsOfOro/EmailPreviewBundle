@@ -11,7 +11,7 @@
   "autoload": {
     "psr-4": {
       "": "src/",
-      "Oro\\Bundle\\EmailBundle\\": "src/platform/src/Oro/Bundle/EmailBundle"
+      "Oro\\": "src/platform/src/Oro/"
     },
     "files": ["src/AppKernel.php"],
     "exclude-from-classmap": ["**/Tests/"]
