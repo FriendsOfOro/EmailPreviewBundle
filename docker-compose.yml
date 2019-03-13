@@ -1,0 +1,48 @@
+version: '2'
+
+services:
+  mail:
+    image: schickling/mailcatcher:latest
+    ports:
+      - 31080:1080
+      - 31025:1025
+
+#  amqp:
+#    image: rabbitmq:3.6-management
+#    ports:
+#      - 5672:5672
+#      - 8080:15672
+##    environment:
+##      - RABBITMQ_DEFAULT_USER=oroinc
+##      - RABBITMQ_DEFAULT_PASS=pssword
+#
+#  elasticsearch:
+#    image: docker.elastic.co/elasticsearch/elasticsearch:6.6.1
+#    ports:
+#      - 19200:9200
+#    environment:
+#      - cluster.name=docker-cluster
+#      - bootstrap.memory_lock=true
+#      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+#      - discovery.type=single-node
+#      - http.port=9200
+#      - http.cors.allow-origin=http://localhost:1358,http://127.0.0.1:11358,http://192.168.64.4:11358,http://dejavu:1358,http://host.docker.internal:11358
+#      - http.cors.enabled=true
+#      - http.cors.allow-headers=X-Requested-With,X-Auth-Token,Content-Type,Content-Length,Authorization
+#      - http.cors.allow-credentials=true
+#
+#  dejavu:
+#    image: appbaseio/dejavu
+#    ports:
+#      - 11358:1358
+
+  sql:
+    image: postgres:9.6-alpine
+    hostname: sql
+    environment:
+      POSTGRES_USER: "oroinc"
+      POSTGRES_DB: "oroinc"
+      POSTGRES_PASSWORD: "password"
+      POSTGRES_ROOT_PASSWORD: "password"
+    ports:
+      - 35432:5432
